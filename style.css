@@ -1,7 +1,12 @@
 .board-container {
+    height: 50vw;
+    width: 50vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: 50vw;
-    width: 50vw;
+    align-items: center;
+    justify-items: center;
+    font-size: 80px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
 }
