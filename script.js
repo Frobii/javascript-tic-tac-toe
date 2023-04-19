@@ -3,4 +3,6 @@ const gameboard = (() => {
   return { grid };
 })();
 
+const displayController = (() => {})();
+
 console.log(gameboard.grid);
