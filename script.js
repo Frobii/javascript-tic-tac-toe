@@ -25,4 +25,12 @@ const displayController = (() => {
   return { positions, populateDisplay };
 })();
 
+const createPlayer = (playerSymbol) => {
+  const symbol = playerSymbol;
+
+  return {
+    symbol,
+  };
+};
+
 displayController.populateDisplay(gameboard.grid);
