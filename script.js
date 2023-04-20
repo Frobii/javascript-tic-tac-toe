@@ -1,28 +1,28 @@
 const gameboard = (() => {
-  const grid = Array.from(Array(3), () => new Array(3));
-  grid[0][2] = 'X';
-  grid[1][1] = 'O';
-  grid[2][0] = 'X';
+  const gamePositons = Array.from(Array(3), () => new Array(3));
 
-  return { grid };
+  const domPositions = [];
+  for (let i = 0; i < 9; i += 1) {
+    domPositions.push(document.querySelector(`.pos-${i}`));
+  }
+
+  gamePositons[0][2] = 'X';
+  gamePositons[1][1] = 'O';
+  gamePositons[2][0] = 'X';
+
+  return { gamePositons, domPositions };
 })();
 
 const displayController = (() => {
-  const positions = [];
-
-  for (let i = 0; i < 9; i += 1) {
-    positions.push(document.querySelector(`.pos-${i}`));
-  }
-
-  function populateDisplay(board) {
-    for (let i = 0; i < positions.length; i += 1) {
+  function populateDisplay(boardArray, domArray) {
+    for (let i = 0; i < domArray.length; i += 1) {
       const row = Math.floor(i / 3);
       const col = i % 3;
-      positions[i].textContent = board[row][col];
+      domArray[i].textContent = boardArray[row][col];
     }
   }
 
-  return { positions, populateDisplay };
+  return { populateDisplay };
 })();
 
 const createPlayer = (playerSymbol) => {
@@ -33,4 +33,10 @@ const createPlayer = (playerSymbol) => {
   };
 };
 
-displayController.populateDisplay(gameboard.grid);
+const playerOne = createPlayer('O');
+const playerTwo = createPlayer('X');
+
+displayController.populateDisplay(
+  gameboard.gamePositons,
+  gameboard.domPositions
+);
