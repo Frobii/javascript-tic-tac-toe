@@ -12,6 +12,52 @@ const playerO = player().O;
 const playerX = player().X;
 
 const gameLogic = () => {
+  function checkWinner() {
+    const positions = gameboard.domPositions;
+
+    // Check rows for a win
+    for (let i = 0; i < 9; i += 3) {
+      if (
+        positions[i].textContent !== '' &&
+        positions[i].textContent === positions[i + 1].textContent &&
+        positions[i].textContent === positions[i + 2].textContent
+      ) {
+        return true;
+      }
+    }
+
+    // Check columns for a win
+    for (let i = 0; i < 3; i += 1) {
+      if (
+        positions[i].textContent !== '' &&
+        positions[i].textContent === positions[i + 3].textContent &&
+        positions[i].textContent === positions[i + 6].textContent
+      ) {
+        return true;
+      }
+    }
+
+    // Check diagonals for a win
+    if (
+      positions[0].textContent !== '' &&
+      positions[0].textContent === positions[4].textContent &&
+      positions[0].textContent === positions[8].textContent
+    ) {
+      return true;
+    }
+
+    if (
+      positions[2].textContent !== '' &&
+      positions[2].textContent === positions[4].textContent &&
+      positions[2].textContent === positions[6].textContent
+    ) {
+      return true;
+    }
+
+    // No winner found
+    return false;
+  }
+
   function makeMove(event) {
     let countO = 0;
     let countX = 0;
@@ -33,6 +79,10 @@ const gameLogic = () => {
       event.target.textContent = playerO;
     } else if (countX === countO) {
       event.target.textContent = playerX;
+    }
+
+    if (checkWinner()) {
+      alert('winner!');
     }
 
     countO = 0;
