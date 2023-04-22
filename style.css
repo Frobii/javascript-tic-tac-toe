@@ -1,3 +1,8 @@
+@font-face {
+    font-family: handDrawn;
+    src: url(GochiHand-Regular.ttf);
+}
+
 .board-container {
     height: 50vw;
     width: 50vw;
@@ -6,15 +11,16 @@
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
-    font-size: 80px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15vw;
+    font-family: handDrawn;
     font-weight: 900;
 }
 
 .board-container div {
+    font-family: handDrawn;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }

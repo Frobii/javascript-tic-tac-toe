@@ -75,18 +75,25 @@ const gameLogic = () => {
     } else if (countO === 0 && countX === 0) {
       // X always goes first
       event.target.textContent = playerX;
+      countX += 1;
     } else if (countO < countX) {
       event.target.textContent = playerO;
+      countO += 1;
     } else if (countX === countO) {
       event.target.textContent = playerX;
+      countX += 1;
     }
 
-    if (checkWinner()) {
-      alert('winner!');
+    if (checkWinner() && countX > countO) {
+      alert('X wins!');
+    } else if (checkWinner() && countO === countX) {
+      alert('O wins!');
+    } else if (countX === 5) {
+      alert(`It's a tie!`);
     }
 
-    countO = 0;
     countX = 0;
+    countO = 0;
   }
 
   return {
