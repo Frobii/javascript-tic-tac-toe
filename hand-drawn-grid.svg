@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+  <path d="M 50 0 L 50 150" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 100 0 L 100 150" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 0 50 L 150 50" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 0 100 L 150 100" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<!-- I asked chatGPT to draw a sunflower! It looks like an eye. I like it.-->
+<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="40" fill="yellow" stroke="black" stroke-width="2"/>
+  <path d="M 50,20 Q 20,60 50,80 Q 80,60 50,20 Z" fill="brown" stroke="black" stroke-width="2"/>
+  <circle cx="50" cy="50" r="20" fill="black"/>
+</svg> -->
