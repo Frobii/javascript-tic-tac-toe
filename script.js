@@ -103,11 +103,22 @@ const gameLogic = () => {
 
 const gameboard = (() => {
   const domPositions = [];
+  const resetButton = document.querySelector('.reset-button');
 
   for (let i = 0; i < 9; i += 1) {
     domPositions.push(document.querySelector(`.pos-${i}`));
     domPositions[i].addEventListener('click', gameLogic().makeMove);
   }
+
+  function resetBoard() {
+    for (let i = 0; i < 9; i += 1) {
+      domPositions[i].textContent = '';
+    }
+  }
+
+  resetButton.addEventListener('click', () => {
+    resetBoard();
+  });
 
   return { domPositions };
 })();
