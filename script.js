@@ -12,6 +12,8 @@ const playerO = player().O;
 const playerX = player().X;
 
 const gameLogic = () => {
+  const boardCover = document.querySelector('.board-cover');
+
   function checkWinner() {
     const positions = gameboard.domPositions;
 
@@ -86,10 +88,13 @@ const gameLogic = () => {
 
     if (checkWinner() && countX > countO) {
       alert('X wins!');
+      boardCover.style.zIndex = '2';
     } else if (checkWinner() && countO === countX) {
       alert('O wins!');
+      boardCover.style.zIndex = '2';
     } else if (countX === 5) {
       alert(`It's a tie!`);
+      boardCover.style.zIndex = '2';
     }
 
     countX = 0;
@@ -98,6 +103,7 @@ const gameLogic = () => {
 
   return {
     makeMove,
+    boardCover,
   };
 };
 
@@ -118,6 +124,7 @@ const gameboard = (() => {
 
   resetButton.addEventListener('click', () => {
     resetBoard();
+    gameLogic().boardCover.style.zIndex = '1';
   });
 
   return { domPositions };

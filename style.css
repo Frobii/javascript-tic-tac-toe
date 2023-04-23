@@ -57,6 +57,12 @@ body {
     opacity: 0.9;
 }
 
+.board-cover {
+    height: 50vw;
+    width: 50vw;
+    position: absolute;
+}
+
 .reset-button {
     font-family: handDrawn;
     font-size: 24px;
