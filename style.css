@@ -41,8 +41,8 @@ body {
 }
 
 .position-container div {
-    height: min(100%,170px);
-    width: min(100%,160px);
+    height: 10vw;
+    width: 10vw;
     display: flex;
     justify-content: center;
     align-items: center;
