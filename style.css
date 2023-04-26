@@ -48,10 +48,11 @@ body {
     font-size: 40px;
     justify-items: center;
     align-items: center;
+    text-align: center;
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px #0000001f;
+    text-shadow: 2px 2px #ff00002f;
 }
 
 .info-title {
