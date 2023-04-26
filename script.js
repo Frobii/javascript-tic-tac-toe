@@ -14,6 +14,28 @@ const playerX = player().X;
 const gameLogic = () => {
   const boardCover = document.querySelector('.board-cover');
   const confetti = document.querySelector('.confetti');
+  const playerInfo = document.querySelector('.player-info');
+  const resultScreen = document.querySelector('.result-screen');
+  const tieScreen = document.querySelector('.tie-screen');
+  const xName = document.getElementById('x-name');
+  const oName = document.getElementById('o-name');
+
+  function swapResultScreen() {
+    resultScreen.style.display = 'flex';
+    playerInfo.style.display = 'none';
+  }
+
+  function swapTieScreen() {
+    tieScreen.style.display = 'flex';
+    playerInfo.style.display = 'none';
+  }
+
+  function swapInfoScreen() {
+    tieScreen.style.display = 'none';
+    resultScreen.style.display = 'none';
+    playerInfo.style.display = 'flex';
+    resultScreen.textContent = '';
+  }
 
   function checkWinner() {
     const positions = gameboard.domPositions;
@@ -88,16 +110,19 @@ const gameLogic = () => {
     }
 
     if (checkWinner() && countX > countO) {
-      alert('X wins!');
+      resultScreen.textContent = `${xName.value} won!!!`;
       boardCover.style.zIndex = '2';
       confetti.style.display = 'inline';
+      swapResultScreen();
     } else if (checkWinner() && countO === countX) {
-      alert('O wins!');
+      resultScreen.textContent = `${oName.value} won!!!`;
       boardCover.style.zIndex = '2';
       confetti.style.display = 'inline';
+      swapResultScreen();
     } else if (countX === 5) {
-      alert(`It's a tie!`);
+      tieScreen.textContent = `It's a tie!`;
       boardCover.style.zIndex = '2';
+      swapTieScreen();
     }
 
     countX = 0;
@@ -106,6 +131,7 @@ const gameLogic = () => {
 
   return {
     makeMove,
+    swapInfoScreen,
     boardCover,
     confetti,
   };
@@ -130,6 +156,7 @@ const gameboard = (() => {
     resetBoard();
     gameLogic().boardCover.style.zIndex = '1';
     gameLogic().confetti.style.display = 'none';
+    gameLogic().swapInfoScreen();
   });
 
   return { domPositions };
