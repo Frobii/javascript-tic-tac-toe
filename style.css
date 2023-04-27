@@ -16,6 +16,7 @@ body {
     z-index: -1;
     position: absolute;
     display: none;
+    animation: fadeIn 2s;
 }
 
 .main{
@@ -34,30 +35,26 @@ body {
 }
 
 .player-info {
-    height: 11vh;
+    height: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* display: none; */
 }
 
 .result-screen {
-    height: 11vh;
+    height: 15vh;
     display: none;
-    /* display: flex; */
     font-size: 40px;
     justify-items: center;
     align-items: center;
     text-align: center;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color:blueviolet;
     text-shadow: 2px 2px #ff00002f;
     animation: fadeIn 2s;
 }
 
 .tie-screen {
-    height: 11vh;
+    height: 15vh;
     display: none;
     color: black;
     justify-items: center;
@@ -89,9 +86,26 @@ input {
     font-size: 18px;
 }
 
+.swap-button {
+    font-family: handDrawn;
+    font-size: 18px;
+    height: 30px;
+    width: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.board-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .position-container {
-    height: 50vw;
-    width: 50vw;
+    height: 400px;
+    width: 400px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -104,8 +118,8 @@ input {
 }
 
 .position-container div {
-    height: 10vw;
-    width: 10vw;
+    height: 130px;
+    width: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,16 +127,16 @@ input {
 }
 
 .game-grid {
-    height: 50vw;
-    width: 50vw;
+    height: 400px;
+    width: 400px;
     z-index: -1;
     position: absolute;
     opacity: 0.9;
 }
 
 .board-cover {
-    height: 50vw;
-    width: 50vw;
+    height: 400px;
+    width: 400px;
     position: absolute;
 }
 
