@@ -140,10 +140,20 @@ const gameLogic = () => {
 const gameboard = (() => {
   const domPositions = [];
   const resetButton = document.querySelector('.reset-button');
+  const swapButton = document.querySelector('.swap-button');
+  const xName = document.getElementById('x-name');
+  const oName = document.getElementById('o-name');
 
   for (let i = 0; i < 9; i += 1) {
     domPositions.push(document.querySelector(`.pos-${i}`));
     domPositions[i].addEventListener('click', gameLogic().makeMove);
+  }
+
+  function swapNames() {
+    let placeHolder = '';
+    placeHolder = xName.value;
+    xName.value = oName.value;
+    oName.value = placeHolder;
   }
 
   function resetBoard() {
@@ -151,6 +161,10 @@ const gameboard = (() => {
       domPositions[i].textContent = '';
     }
   }
+
+  swapButton.addEventListener('click', () => {
+    swapNames();
+  });
 
   resetButton.addEventListener('click', () => {
     resetBoard();
